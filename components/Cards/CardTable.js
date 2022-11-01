@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 import TableDropdown from "components/Dropdowns/TableDropdown.js";
 
-export default function CardTable({ color }) {
+export default function CardTable({ color, title }) {
   return (
     <>
       <div
@@ -23,7 +23,7 @@ export default function CardTable({ color }) {
                   (color === "light" ? "text-gray-800" : "text-white")
                 }
               >
-                Card Tables
+                {title}
               </h3>
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function CardTable({ color }) {
                       : "bg-blueGray-800 text-white")
                   }
                 >
-                  Project
+                  Names
                 </th>
                 <th
                   className={
@@ -422,8 +422,10 @@ export default function CardTable({ color }) {
 
 CardTable.defaultProps = {
   color: "light",
+  title: "Loan Title",
 };
 
 CardTable.propTypes = {
   color: PropTypes.oneOf(["light", "dark"]),
+  title: "string",
 };

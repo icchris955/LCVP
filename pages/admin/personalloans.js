@@ -13,10 +13,10 @@ export default function Tables() {
     <>
       <div className="flex flex-wrap mt-4">
         <div className="w-full mb-12 px-4">
-          <CardTable />
+          <CardTable title="Business Financing" />
         </div>
         <div className="w-full mb-12 px-4">
-          <CardTable color="dark" />
+          <CardTable color="dark" title="Credit Line" />
         </div>
       </div>
     </>

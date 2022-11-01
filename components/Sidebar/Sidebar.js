@@ -114,6 +114,52 @@ export default function Sidebar() {
               </li>
 
               <li className="items-center">
+                <Link href="/admin/tables">
+                  <a
+                    href="#pablo"
+                    className={
+                      "text-xs uppercase py-3 font-semibold block " +
+                      (router.pathname.indexOf("/admin/tables") !== -1
+                        ? "text-white hover:text-white"
+                        : "text-white hover:text-white-")
+                    }
+                  >
+                    <i
+                      className={
+                        "fas fa-thin fa-users mr-2 text-sm " +
+                        (router.pathname.indexOf("/admin/personalloans") !== -1
+                          ? "opacity-75"
+                          : "text-blueGray-300")
+                      }
+                    ></i>{" "}
+                    Personal Loans
+                  </a>
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link href="/admin/tables">
+                  <a
+                    href="#pablo"
+                    className={
+                      "text-xs uppercase py-3 font-semibold block " +
+                      (router.pathname.indexOf("/admin/tables") !== -1
+                        ? "text-white hover:text-white"
+                        : "text-white hover:text-white-")
+                    }
+                  >
+                    <i
+                      className={
+                        "fas fa-doutone fa-briefcase mr-2 text-sm " +
+                        (router.pathname.indexOf("/admin/businessloans") !== -1
+                          ? "opacity-75"
+                          : "text-blueGray-300")
+                      }
+                    ></i>{" "}
+                    Business Loans
+                  </a>
+                </Link>
+              </li>
+              <li className="items-center">
                 <Link href="/admin/settings">
                   <a
                     href="#pablo"
@@ -133,30 +179,6 @@ export default function Sidebar() {
                       }
                     ></i>{" "}
                     Settings
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link href="/admin/tables">
-                  <a
-                    href="#pablo"
-                    className={
-                      "text-xs uppercase py-3 font-semibold block " +
-                      (router.pathname.indexOf("/admin/tables") !== -1
-                        ? "text-white hover:text-white"
-                        : "text-white hover:text-white-")
-                    }
-                  >
-                    <i
-                      className={
-                        "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/tables") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Tables
                   </a>
                 </Link>
               </li>
@@ -195,6 +217,17 @@ export default function Sidebar() {
             {/* Navigation */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+              <li className="items-center">
+                <Link href="/profile">
+                  <a
+                    href="#pablo"
+                    className="text-white hover:text-blueGray-500 text-xs uppercase py-3 font-semibold block"
+                  >
+                    <i className="fas fa-solid fa-user text-blueGray-400 mr-2 text-sm"></i>{" "}
+                    Profile
+                  </a>
+                </Link>
+              </li>
               <li className="items-center">
                 <Link href="/auth/login">
                   <a
