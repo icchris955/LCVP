@@ -24,7 +24,7 @@ export default function Sidebar() {
           <Link href="/">
             <a
               href="#pablo"
-              className="md:block md:pb-2 text-white mr-0 inline-block text-md uppercase font-bold p-4 px-0 text-center"
+              className="hidden md:block md:pb-2 text-white mr-0 text-md uppercase font-bold p-4 px-0 text-center"
             >
               LOAN CREDIBILITY VERIFICATION PLATFORM
             </a>
@@ -52,9 +52,9 @@ export default function Sidebar() {
                   <Link href="/">
                     <a
                       href="#pablo"
-                      className="md:block text-left md:pb-2 text-white mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+                      className="md:block text-left md:pb-2 text-white mr-0 whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                     >
-                      LOAN ELIGILITY VERIFICATION
+                      LOAN CREDIBILITY VERIFICATION PLATFORM
                     </a>
                   </Link>
                 </div>
@@ -83,7 +83,7 @@ export default function Sidebar() {
             {/* Divider */}
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
-            <h6 className="md:min-w-full text-white text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+            <h6 className="md:min-w-full text-white text-xs uppercase font-bold  pt-1 pb-4 no-underline hidden">
               Admin Layout Pages
             </h6>
             {/* Navigation */}
@@ -114,12 +114,12 @@ export default function Sidebar() {
               </li>
 
               <li className="items-center">
-                <Link href="/admin/tables">
+                <Link href="/admin/personalloans">
                   <a
                     href="#pablo"
                     className={
                       "text-xs uppercase py-3 font-semibold block " +
-                      (router.pathname.indexOf("/admin/tables") !== -1
+                      (router.pathname.indexOf("/admin/personalloans") !== -1
                         ? "text-white hover:text-white"
                         : "text-white hover:text-white-")
                     }
@@ -137,12 +137,12 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="/admin/tables">
+                <Link href="/admin/businessloans">
                   <a
                     href="#pablo"
                     className={
                       "text-xs uppercase py-3 font-semibold block " +
-                      (router.pathname.indexOf("/admin/tables") !== -1
+                      (router.pathname.indexOf("/admin/businessloans") !== -1
                         ? "text-white hover:text-white"
                         : "text-white hover:text-white-")
                     }
