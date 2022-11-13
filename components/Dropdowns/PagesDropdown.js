@@ -27,7 +27,7 @@ const PagesDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        Pages
+        Routes
       </a>
       <div
         ref={popoverDropdownRef}
@@ -38,7 +38,7 @@ const PagesDropdown = () => {
       >
         <span
           className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent"
           }
         >
           Admin Layout
@@ -47,7 +47,7 @@ const PagesDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
             }
           >
             Dashboard
@@ -57,7 +57,7 @@ const PagesDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
             }
           >
             Settings
@@ -67,7 +67,7 @@ const PagesDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
             }
           >
             Tables
@@ -77,16 +77,16 @@ const PagesDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
             }
           >
             Maps
           </a>
         </Link>
-        <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
+        <div className="h-0 mx-4 my-2 border border-solid " />
         <span
           className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent"
           }
         >
           Auth Layout
@@ -95,7 +95,7 @@ const PagesDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
             }
           >
             Login
@@ -105,16 +105,16 @@ const PagesDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
             }
           >
             Register
           </a>
         </Link>
-        <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
+        <div className="h-0 mx-4 my-2 border border-solid " />
         <span
           className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent "
           }
         >
           No Layout
@@ -123,7 +123,7 @@ const PagesDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
             }
           >
             Landing
@@ -133,7 +133,7 @@ const PagesDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent "
             }
           >
             Profile

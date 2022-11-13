@@ -63,14 +63,24 @@ const IndexDropdown = () => {
             Settings
           </a>
         </Link>
-        <Link href="/admin/tables">
+        <Link href="/admin/personalloans">
           <a
             href="#pablo"
             className={
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
             }
           >
-            Tables
+            Personal Loans
+          </a>
+        </Link>
+        <Link href="/admin/businessloans">
+          <a
+            href="#pablo"
+            className={
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
+            }
+          >
+            Business Loans
           </a>
         </Link>
         <Link href="/admin/maps">
@@ -126,7 +136,7 @@ const IndexDropdown = () => {
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
             }
           >
-            Landing
+            About
           </a>
         </Link>
         <Link href="/profile">

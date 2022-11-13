@@ -1,13 +1,12 @@
 import React from "react";
-
-// components
+import withPrivateRoute from "../utils/withPrivateRoute";
 
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 import HeaderStats from "components/Headers/HeaderStats.js";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
 
-export default function Admin({ children }) {
+const Admin = ({ children }) => {
   return (
     <>
       <Sidebar />
@@ -22,4 +21,10 @@ export default function Admin({ children }) {
       </div>
     </>
   );
-}
+};
+
+Admin.getInitialProps = async (props) => {
+  console.log("##### Congratulations! You are authorized! ######", props);
+  return {};
+};
+export default withPrivateRoute(Admin);

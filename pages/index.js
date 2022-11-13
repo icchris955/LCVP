@@ -1,10 +1,12 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React from "react";
-import Link from "next/link";
+import React, { useContext } from "react";
+
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Index() {
+  const { authState } = useContext(AuthContext);
   return (
     <>
       <IndexNavbar fixed />
@@ -12,6 +14,7 @@ export default function Index() {
         <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-white">
           <h2 className="text-4xl">The First Title</h2>
           <p>Scroll Down</p>
+          <br />
         </div>
         <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-black text-white">
           <h2 className="text-4xl">The Second Title</h2>

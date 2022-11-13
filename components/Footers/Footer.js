@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -67,12 +68,14 @@ export default function Footer() {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
-                        className="text-black hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                        href=" "
-                      >
-                        About Us
-                      </a>
+                      <Link href="/landing">
+                        <a
+                          className="text-black hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                          href=" "
+                        >
+                          About Us
+                        </a>
+                      </Link>
                     </li>
                     <li>
                       <a
