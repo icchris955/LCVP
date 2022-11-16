@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import Link from "next/link";
 import { AuthContext } from "../../context/AuthContext";
+
 // layout for page
 
 import Auth from "layouts/Auth.js";
 
 export default function Login() {
-  let { loginUser } = useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -39,56 +40,62 @@ export default function Login() {
                 <div className="text-white text-center mb-3 font-bold">
                   <small>Or sign in with credentials</small>
                 </div>
-
-                <div className="relative w-full mb-3">
-                  <label
-                    className="block uppercase text-white text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className="border-0 px-3 py-3 placeholder-gray-400 text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Email"
-                  />
-                </div>
-
-                <div className="relative w-full mb-3">
-                  <label
-                    className="block uppercase text-white text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    className="border-0 px-3 py-3 placeholder-gray-400 text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Password"
-                  />
-                </div>
-                <div>
-                  <label className="inline-flex items-center cursor-pointer">
+                <form onSubmit={loginUser}>
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-white text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Username
+                    </label>
                     <input
-                      id="customCheckLogin"
-                      type="checkbox"
-                      className="form-checkbox border-0 rounded text-white ml-1 w-5 h-5 ease-linear transition-all duration-150"
+                      type="text"
+                      id="username"
+                      name="username"
+                      className="border-0 px-3 py-3 placeholder-gray-400 text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="Username"
+                      required
                     />
-                    <span className="ml-2 text-sm font-semibold text-white">
-                      Remember me
-                    </span>
-                  </label>
-                </div>
+                  </div>
 
-                <div className="text-center mt-6">
-                  <button
-                    className="bg-white text-black active:bg-blueGray-500 active:text-white text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={loginUser}
-                  >
-                    Sign In
-                  </button>
-                </div>
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-white text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      className="border-0 px-3 py-3 placeholder-gray-400 text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="Password"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="inline-flex items-center cursor-pointer">
+                      <input
+                        id="customCheckLogin"
+                        type="checkbox"
+                        className="form-checkbox border-0 rounded text-white ml-1 w-5 h-5 ease-linear transition-all duration-150"
+                      />
+                      <span className="ml-2 text-sm font-semibold text-white">
+                        Remember me
+                      </span>
+                    </label>
+                  </div>
+
+                  <div className="text-center mt-6">
+                    <button
+                      className="bg-white text-black active:bg-blueGray-500 active:text-white text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                      type="submit"
+                    >
+                      Sign In
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
             <div className="flex flex-wrap mt-6 relative">

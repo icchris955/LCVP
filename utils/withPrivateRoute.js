@@ -1,15 +1,15 @@
 import React from "react";
 import Router from "next/router";
 
-const login = "../pages/auth/login?redirected=false"; // Define your login route address.
+const login = "../pages/auth/login?redirected=true"; // Define your login route address.
 
 /**
  * Check user authentication and authorization
  * It depends on you and your auth service provider.
- * @returns {{auth: null}}
+ * @returns {{auth: false}}
  */
 const checkUserAuthentication = () => {
-  return { auth: false }; // change null to { isAdmin: true } for test it.
+  return { isAdmin: false }; // change null to { isAdmin: true } for test it.
 };
 
 const withPrivateRoute = (WrappedComponent) => {
