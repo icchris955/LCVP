@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { createPopper } from "@popperjs/core";
+import { AuthContext } from "context/AuthContext";
 
 const UserDropdown = () => {
+  const { user } = useContext(AuthContext);
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
@@ -18,7 +20,7 @@ const UserDropdown = () => {
   return (
     <>
       <a
-        className="text-gray-500 block"
+        className=" block"
         href="#pablo"
         ref={btnDropdownRef}
         onClick={(e) => {
@@ -27,7 +29,7 @@ const UserDropdown = () => {
         }}
       >
         <div className="items-center flex">
-          <span className="w-10 h-10 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
+          <span className="w-10 h-10 text-sm text-white inline-flex items-center justify-center rounded-full">
             <img
               alt="..."
               className="w-full rounded-full align-middle border-none shadow-lg"
@@ -43,42 +45,36 @@ const UserDropdown = () => {
           "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
         }
       >
+        <div
+          className={
+            "text-md font-semibold py-2 px-6 block w-full whitespace-nowrap bg-transparent shadow-xl"
+          }
+        >
+          userusername
+        </div>
         <a
           href="#pablo"
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent "
           }
-          onClick={(e) => e.preventDefault()}
+          onClick={(e) => {
+            e.preventDefault();
+            closeDropdownPopover();
+          }}
         >
-          Action
+          Profile
         </a>
         <a
           href="#pablo"
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent "
           }
-          onClick={(e) => e.preventDefault()}
+          onClick={(e) => {
+            e.preventDefault();
+            closeDropdownPopover();
+          }}
         >
-          Another action
-        </a>
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Something else here
-        </a>
-        <div className="h-0 my-2 border border-solid border-blueGray-100" />
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Seprated link
+          Logout
         </a>
       </div>
     </>

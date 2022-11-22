@@ -103,14 +103,14 @@ export default function Login() {
                 <a
                   href="#pablo"
                   onClick={(e) => e.preventDefault()}
-                  className="text-blueGray-500"
+                  className="text-black"
                 >
                   <small>Forgot password?</small>
                 </a>
               </div>
               <div className="w-1/2 text-right">
                 <Link href="/auth/register">
-                  <a href="#pablo" className="text-blueGray-500">
+                  <a href="#pablo" className="text-black">
                     <small>Create new account</small>
                   </a>
                 </Link>
