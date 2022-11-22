@@ -89,7 +89,7 @@ export default function Landing() {
                       <i className="fas fa-retweet"></i>
                     </div>
                     <h6 className="text-xl font-semibold">Free Revisions</h6>
-                    <p className="mt-2 mb-4 text-blueGray-500">
+                    <p className="mt-2 mb-4">
                       Keep you user engaged by providing meaningful information.
                       Remember that by this time, the user is curious.
                     </p>
@@ -104,7 +104,7 @@ export default function Landing() {
                       <i className="fas fa-fingerprint"></i>
                     </div>
                     <h6 className="text-xl font-semibold">Verified Company</h6>
-                    <p className="mt-2 mb-4 text-blueGray-500">
+                    <p className="mt-2 mb-4 ">
                       Write a few lines about each one. A paragraph describing a
                       feature will be enough. Keep you user engaged!
                     </p>
