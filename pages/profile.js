@@ -14,8 +14,7 @@ export default function Profile() {
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80')",
+              backgroundImage: "url('/img/kseniia-rastvorova.jpg')",
             }}
           >
             <span
@@ -29,7 +28,7 @@ export default function Profile() {
           >
             <svg
               className="absolute bottom-0 overflow-hidden"
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="http://www.w3.org/1000/svg"
               preserveAspectRatio="none"
               version="1.1"
               viewBox="0 0 2560 100"

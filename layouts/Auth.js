@@ -10,7 +10,7 @@ export default function Auth({ children }) {
     <>
       <Navbar transparent />
       <main>
-        <section className="relative w-full h-full py-20 min-h-screen">
+        <section className="relative w-full h-full py-20 min-h-screen font-serif">
           <div
             className="absolute top-0 w-full h-full bg-full"
             style={{

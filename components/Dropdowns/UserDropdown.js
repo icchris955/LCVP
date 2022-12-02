@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useAuthState } from "../../context/auth-context";
 import { createPopper } from "@popperjs/core";
-import { AuthContext } from "context/AuthContext";
 
 const UserDropdown = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuthState();
+  console.log(user);
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
@@ -50,7 +51,7 @@ const UserDropdown = () => {
             "text-md font-semibold py-2 px-6 block w-full whitespace-nowrap bg-transparent shadow-xl"
           }
         >
-          userusername
+          {user}
         </div>
         <a
           href="#pablo"

@@ -88,7 +88,9 @@ export default function Footer() {
                     <li>
                       <a
                         className="text-black hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                        href=" "
+                        href="https://github.com/icchris955/LCVP"
+                        target="_blank"
+                        rel="noreferrer noopener"
                       >
                         Github
                       </a>

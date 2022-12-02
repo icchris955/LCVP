@@ -1,13 +1,45 @@
-import React, { useContext } from "react";
+import React from "react";
 import Link from "next/link";
-import { AuthContext } from "../../context/AuthContext";
-
+import { useRouter } from "next/router";
+import {
+  useAuthState,
+  useAuthDispatch,
+  doLogin,
+} from "../../context/auth-context";
 // layout for page
 
 import Auth from "layouts/Auth.js";
 
 export default function Login() {
-  const { loginUser } = useContext(AuthContext);
+  // const { fetchUser } = useContext(AuthContext);
+  const { user: loggedUser, status, error } = useAuthState();
+  const dispatch = useAuthDispatch();
+
+  const [user, setUser] = React.useState("");
+  const [pwd, setpwd] = React.useState("");
+  const inputRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+  const router = useRouter();
+  if (loggedUser) return router.push("/admin/dashboard");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    doLogin(dispatch, user, pwd);
+    setUser("");
+    setpwd("");
+  };
+
+  const getUser = (e) => {
+    setUser(e.target.value);
+  };
+  const getPwd = (e) => {
+    setpwd(e.target.value);
+  };
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -40,7 +72,7 @@ export default function Login() {
                 <div className="text-white text-center mb-3 font-bold">
                   <small>Or sign in with credentials</small>
                 </div>
-                <form onSubmit={loginUser}>
+                <form onSubmit={handleSubmit}>
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-white text-xs font-bold mb-2"
@@ -49,11 +81,15 @@ export default function Login() {
                       Username
                     </label>
                     <input
+                      ref={inputRef}
                       type="text"
                       id="username"
                       name="username"
                       className="border-0 px-3 py-3 placeholder-gray-400 text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Username"
+                      value={user}
+                      onChange={getUser}
+                      autoComplete="off"
                       required
                     />
                   </div>
@@ -66,11 +102,15 @@ export default function Login() {
                       Password
                     </label>
                     <input
+                      ref={inputRef}
                       type="password"
                       id="password"
                       name="password"
                       className="border-0 px-3 py-3 placeholder-gray-400 text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
+                      value={pwd}
+                      onChange={getPwd}
+                      autoComplete="off"
                       required
                     />
                   </div>
@@ -96,6 +136,11 @@ export default function Login() {
                     </button>
                   </div>
                 </form>
+                {status === "rejected" && (
+                  <p style={{ color: "maroon", marginTop: "10px" }}>
+                    Error: {error}
+                  </p>
+                )}
               </div>
             </div>
             <div className="flex flex-wrap mt-6 relative">

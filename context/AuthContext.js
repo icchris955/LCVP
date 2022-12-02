@@ -1,8 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // src/context/auth-context.js
 import { createContext, useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
-import axios from "axios";
-import useSWR from "swr";
 
 const AuthContext = createContext();
 
@@ -30,34 +29,45 @@ const AuthProvider = ({ children }) => {
   const [AuthTokens, setAuthTokens] = useState(null);
 
   // const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/token/`;
+  const [Username, setUsername] = useState();
+  const [Password, setPassword] = useState();
 
-  const loginUser = async (event) => {
-    event.preventDefault();
+  function getUserInputs(event) {
+    setUsername(event.target.username.value);
+    setPassword(event.target.password.value);
+  }
+
+  // declare the async data fetching function
+  const fetchUser = async (event) => {
+    // get the data from the api
     const res = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: event.target.username.value,
-        password: event.target.password.value,
+        username: Username,
+        password: Password,
       }),
     });
+    // convert data to json
     const data = await res.json();
-
     setAuthTokens(data);
     setUser(jwt_decode(data.access));
-    console.log(user);
   };
-  const url = "http://127.0.0.1:8000/api/token/";
-  // fetch data
-  const { data, error } = useSWR(url);
-  if (error) throw error;
+  useEffect(() => {
+    // call the fetchUser function
+    fetchUser()
+      // make sure to catch any error
+      .catch(console.error);
+  }, [fetchUser]);
+
   const contextData = {
     user: user,
-    loginUser: loginUser,
+    fetchUser: fetchUser,
   };
-
+  console.log(user);
   // const loginUser = async (event) => {
   //   event.preventDefault();
   //     try {

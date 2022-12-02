@@ -3,8 +3,9 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-import { AuthProvider } from "../context/AuthContext";
+// import { AuthProvider } from "../context/AuthContext";
 import PageChange from "components/PageChange/PageChange.js";
+import { AuthProvider } from "../context/auth-context";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "styles/tailwind.css";
@@ -54,6 +55,10 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+            rel="stylesheet"
+          ></link>
           <title>LCVP</title>
           {/* <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> */}
         </Head>
