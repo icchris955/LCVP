@@ -1,9 +1,11 @@
-import React from "react";
-
-import Navbar from "src/components/Navbars/AuthNavbar.js";
-import Footer from "src/components/Footers/Footer.js";
+import React, { useContext } from "react";
+import Navbar from "components/Navbars/AuthNavbar.js";
+import Footer from "components/Footers/Footer.js";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Profile() {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <>
       <Navbar transparent />
@@ -95,11 +97,13 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="text-center mt-12">
-                  <h3 className="text-4xl font-semibold leading-normal text-blueGray-700 mb-2">
-                    Jenna Stones
-                  </h3>
-                  <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                    <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
+                  {user && (
+                    <h3 className="text-4xl font-semibold leading-normal  mb-2">
+                      {user.username}
+                    </h3>
+                  )}
+                  <div className="text-sm leading-normal mt-0 mb-2  font-bold uppercase">
+                    <i className="fas fa-map-marker-alt mr-2 text-lg "></i>{" "}
                     Nyarugenge, Kigali
                   </div>
                   <div className="mb-2 text-blueGray-600 mt-10">

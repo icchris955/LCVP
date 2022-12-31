@@ -10,7 +10,7 @@ export default function CardTable({ color, title }) {
     <>
       <div
         className={
-          "relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded " +
+          "relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded accordion " +
           (color === "light" ? "bg-gray-100" : "bg-black text-white")
         }
       >
@@ -94,7 +94,7 @@ export default function CardTable({ color, title }) {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr className="hover:bg-gray-100">
                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                   <img
                     src="/img/bootstrap.jpg"

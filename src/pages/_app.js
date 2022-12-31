@@ -3,13 +3,9 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-import { AuthProvider } from "../context/AuthContext";
-import PageChange from "src/components/PageChange/PageChange.js";
-import { AppProps } from "next/app";
-import { Provider } from "react-redux";
-
-// Import global store
-// import { store } from "../state/store/store";
+// import { AuthProvider } from "../context/AuthContext";
+import PageChange from "components/PageChange/PageChange.js";
+import { AuthProvider } from "../context/auth-context";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "styles/tailwind.css";

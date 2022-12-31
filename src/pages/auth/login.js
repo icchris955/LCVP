@@ -1,6 +1,11 @@
 import React, { useContext, useState } from "react";
 import Link from "next/link";
-import { AuthContext } from "../../context/AuthContext";
+import { useRouter } from "next/router";
+import {
+  useAuthState,
+  useAuthDispatch,
+  doLogin,
+} from "../../context/auth-context";
 // layout for page
 
 import Auth from "layouts/Auth.js";
@@ -10,9 +15,30 @@ export default function Login() {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
 
-  const submitHandler = (e) => {
+  const [user, setUser] = React.useState("");
+  const [pwd, setpwd] = React.useState("");
+  const inputRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+  const router = useRouter();
+  if (loggedUser) return router.push("/admin/dashboard");
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    login({ email, password });
+    doLogin(dispatch, user, pwd);
+    setUser("");
+    setpwd("");
+  };
+
+  const getUser = (e) => {
+    setUser(e.target.value);
+  };
+  const getPwd = (e) => {
+    setpwd(e.target.value);
   };
   return (
     <>
@@ -58,9 +84,11 @@ export default function Login() {
                     <input
                       type="email"
                       className="border-0 px-3 py-3 placeholder-gray-400 text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Email"
-                      onChange={(e) => setEmail(e.target.value)}
-                      value={email}
+                      placeholder="Username"
+                      value={user}
+                      onChange={getUser}
+                      autoComplete="off"
+                      required
                     />
                   </div>
 
@@ -75,8 +103,10 @@ export default function Login() {
                       type="password"
                       className="border-0 px-3 py-3 placeholder-gray-400 text-black bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      value={pwd}
+                      onChange={getPwd}
+                      autoComplete="off"
+                      required
                     />
                   </div>
                   <div>
@@ -101,8 +131,13 @@ export default function Login() {
                       Sign In
                     </button>
                   </div>
-                </div>
-              </form>
+                </form>
+                {status === "rejected" && (
+                  <p style={{ color: "maroon", marginTop: "10px" }}>
+                    Error: {error}
+                  </p>
+                )}
+              </div>
             </div>
             <div className="flex flex-wrap mt-6 relative">
               <div className="w-1/2">

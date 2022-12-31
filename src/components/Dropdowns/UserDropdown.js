@@ -2,6 +2,11 @@ import React from "react";
 import { createPopper } from "@popperjs/core";
 
 const UserDropdown = () => {
+<<<<<<< Updated upstream:src/components/Dropdowns/UserDropdown.js
+=======
+  const { user: loggedUser } = useAuthState();
+  console.log(loggedUser);
+>>>>>>> Stashed changes:components/Dropdowns/UserDropdown.js
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
@@ -50,6 +55,7 @@ const UserDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
+<<<<<<< Updated upstream:src/components/Dropdowns/UserDropdown.js
           Action
         </a>
         <a
@@ -61,6 +67,10 @@ const UserDropdown = () => {
         >
           Another action
         </a>
+=======
+          {loggedUser}
+        </div>
+>>>>>>> Stashed changes:components/Dropdowns/UserDropdown.js
         <a
           href="#pablo"
           className={
