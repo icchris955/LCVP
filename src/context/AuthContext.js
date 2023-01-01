@@ -97,12 +97,40 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Logout User
+  const logout = async () => {
+    try {
+      // remove the http-only cookie
+      await axios.post('http://localhost:3000/api/logout/')
+
+      // remove the access token and the user from the state
+      setUser(null)
+      setAccessToken(null)
+
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setError(error.response.data.message);
+        return;
+      } else if (error.request) {
+        setError("Something went wrong!");
+        return;
+      } else {
+        setError("Something went wrong!");
+        return;
+      }
+      console.error("Error: ", error.message);
+      setError("Something went wrong");
+      return;
+    }
+  };
+
   let contextData = {
     user: user,
     accessToken: accessToken,
     error: error,
     login: login,
     register: register,
+    logout: logout,
   };
 
   // return <Provider value={contextData}>{children}</Provider>;
