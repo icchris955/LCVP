@@ -1,5 +1,5 @@
 // src/context/auth-context.js
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 
@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   const router = useRouter();
+  useEffect(() => isAuthenticated(), []);
 
   // Login User
   const login = async ({ email, password }) => {
@@ -101,12 +102,37 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       // remove the http-only cookie
-      await axios.post('http://localhost:3000/api/logout/')
+      await axios.post("http://localhost:3000/api/logout/");
 
       // remove the access token and the user from the state
-      setUser(null)
-      setAccessToken(null)
+      setUser(null);
+      setAccessToken(null);
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setError(error.response.data.message);
+        return;
+      } else if (error.request) {
+        setError("Something went wrong!");
+        return;
+      } else {
+        setError("Something went wrong!");
+        return;
+      }
+      console.error("Error: ", error.message);
+      setError("Something went wrong");
+      return;
+    }
+  };
 
+  // Authentication Status
+  const isAuthenticated = async () => {
+    try {
+      // api request to api/user
+      const { data } = await axios.post("http://localhost:3000/api/user");
+      setUser(data.user)
+      setAccessToken(data.access)
+      
+      // setUser()
     } catch (error) {
       if (error.response && error.response.data) {
         setError(error.response.data.message);
