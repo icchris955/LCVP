@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 // layout for page
 
 import Auth from "layouts/Auth.js";
 
 export default function Register() {
+  let { register } = useContext(AuthContext);
+  let [email, setEmail] = useState("");
+  let [password, setPassword] = useState("");
+  let [nid, setNID] = useState("");
+  let [name, setName] = useState("");
+  let [phone, setPhone] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    register({ nid, name, email, phone, password });
+  };
+
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -37,7 +50,7 @@ export default function Register() {
                 <div className="text-white text-center mb-3 font-bold">
                   <small>Or sign up with credentials</small>
                 </div>
-                <form>
+                <form onSubmit={submitHandler}>
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-white text-xs font-bold mb-2"
@@ -46,9 +59,11 @@ export default function Register() {
                       Name
                     </label>
                     <input
-                      type="email"
+                      type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </div>
 
@@ -63,6 +78,8 @@ export default function Register() {
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Phone Number"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
                     />
                   </div>
 
@@ -77,6 +94,8 @@ export default function Register() {
                       type="email"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
 
@@ -91,6 +110,8 @@ export default function Register() {
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="National ID"
+                      value={nid}
+                      onChange={(e) => setNID(e.target.value)}
                     />
                   </div>
 
@@ -105,6 +126,8 @@ export default function Register() {
                       type="password"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
 
@@ -131,7 +154,7 @@ export default function Register() {
                   <div className="text-center mt-6">
                     <button
                       className="bg-white text-black active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                      type="button"
+                      type="submit"
                     >
                       Create Account
                     </button>

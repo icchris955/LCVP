@@ -1,5 +1,5 @@
 // src/context/auth-context.js
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 
@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   const router = useRouter();
+  useEffect(() => isAuthenticated(), []);
 
   // Login User
   const login = async ({ email, password }) => {
@@ -47,31 +48,106 @@ export const AuthProvider = ({ children }) => {
         setError(error.response.data.message);
         return;
       } else if (error.request) {
-        setError('Something went wrong!');
+        setError("Something went wrong!");
         return;
       } else {
         setError("Something went wrong!");
         return;
       }
-      console.error('Error: ', error.message);
-      setError('Something went wrong')
+      console.error("Error: ", error.message);
+      setError("Something went wrong");
       return;
     }
 
     // console.log(data)
   };
 
-  const loginUser = async ({ email, password }) => {
-    // e.preventDefault();
-    console.log("Form Submitted");
-    console.log("Login Context: ", { email, password });
-    // let response = fetch("http://127.0.0.1:8000/api/token/", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ username: null, password: null }),
-    // });
+  // Register User
+  const register = async ({ name, phone, nid, email, password }) => {
+    const config = {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    };
+    const body = {
+      nid,
+      name,
+      email,
+      phone,
+      password,
+    };
+
+    try {
+      await axios.post("http://localhost:3000/api/register/", body, config);
+      login({ email, password });
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setError(error.response.data.message);
+        return;
+      } else if (error.request) {
+        setError("Something went wrong!");
+        return;
+      } else {
+        setError("Something went wrong!");
+        return;
+      }
+      console.error("Error: ", error.message);
+      setError("Something went wrong");
+      return;
+    }
+  };
+
+  // Logout User
+  const logout = async () => {
+    try {
+      // remove the http-only cookie
+      await axios.post("http://localhost:3000/api/logout/");
+
+      // remove the access token and the user from the state
+      setUser(null);
+      setAccessToken(null);
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setError(error.response.data.message);
+        return;
+      } else if (error.request) {
+        setError("Something went wrong!");
+        return;
+      } else {
+        setError("Something went wrong!");
+        return;
+      }
+      console.error("Error: ", error.message);
+      setError("Something went wrong");
+      return;
+    }
+  };
+
+  // Authentication Status
+  const isAuthenticated = async () => {
+    try {
+      // api request to api/user
+      const { data } = await axios.post("http://localhost:3000/api/user");
+      setUser(data.user)
+      setAccessToken(data.access)
+      
+      // setUser()
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setError(error.response.data.message);
+        return;
+      } else if (error.request) {
+        setError("Something went wrong!");
+        return;
+      } else {
+        setError("Something went wrong!");
+        return;
+      }
+      console.error("Error: ", error.message);
+      setError("Something went wrong");
+      return;
+    }
   };
 
   let contextData = {
@@ -79,7 +155,8 @@ export const AuthProvider = ({ children }) => {
     accessToken: accessToken,
     error: error,
     login: login,
-    loginUser: loginUser,
+    register: register,
+    logout: logout,
   };
 
   // return <Provider value={contextData}>{children}</Provider>;

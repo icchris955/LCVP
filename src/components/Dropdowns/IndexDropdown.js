@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import { createPopper } from "@popperjs/core";
+import { AuthContext } from "../../context/AuthContext";
+import logout from "src/pages/api/logout";
 
 const IndexDropdown = () => {
   // dropdown props
@@ -16,6 +18,16 @@ const IndexDropdown = () => {
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
   };
+
+  // Authentications stuff
+  const { user, logout } = useContext(AuthContext);
+
+  // Handling Logout
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    await logout();
+  };
+
   return (
     <>
       <a
@@ -101,26 +113,43 @@ const IndexDropdown = () => {
         >
           Auth Layout
         </span>
-        <Link href="/auth/login">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
-            }
-          >
-            Login
-          </a>
-        </Link>
-        <Link href="/auth/register">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
-            }
-          >
-            Register
-          </a>
-        </Link>
+        {user ? (
+          <Link href="javascript:void(0)">
+            <a
+              onClick={handleLogout}
+              href="javascript:void(0)"
+              className={
+                "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
+              }
+            >
+              Logout
+            </a>
+          </Link>
+        ) : (
+          <>
+            <Link href="/auth/login">
+              <a
+                href="javascript:void(0)"
+                className={
+                  "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
+                }
+              >
+                Login
+              </a>
+            </Link>
+            <Link href="/auth/register">
+              <a
+                href="#pablo"
+                className={
+                  "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
+                }
+              >
+                Register
+              </a>
+            </Link>
+          </>
+        )}
+
         <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
         <span
           className={
