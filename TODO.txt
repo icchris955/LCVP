@@ -1,0 +1,10 @@
+// Authentication
+------------------
+* Register
+----------
+- Form validations: National ID && Phone Number
+
+
+* Login
+--------
+- Form validations
