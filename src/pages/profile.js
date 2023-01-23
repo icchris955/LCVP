@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import Navbar from "components/Navbars/AuthNavbar.js";
-import Footer from "components/Footers/Footer.js";
+import Navbar from "../components/Navbars/AuthNavbar.js";
+import Footer from "../components/Footers/Footer.js";
 import { AuthContext } from "../context/AuthContext";
 
 export default function Profile() {
@@ -63,7 +63,7 @@ export default function Profile() {
                         className="bg-blueGray-700 active:bg-blueGray-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                         type="button"
                       >
-                        Connect
+                        Edit
                       </button>
                     </div>
                   </div>
@@ -74,7 +74,7 @@ export default function Profile() {
                           22
                         </span>
                         <span className="text-sm text-blueGray-400">
-                          Friends
+                          Approved
                         </span>
                       </div>
                       <div className="mr-4 p-3 text-center">
@@ -82,16 +82,14 @@ export default function Profile() {
                           10
                         </span>
                         <span className="text-sm text-blueGray-400">
-                          Photos
+                          Declined
                         </span>
                       </div>
                       <div className="lg:mr-4 p-3 text-center">
                         <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                           89
                         </span>
-                        <span className="text-sm text-blueGray-400">
-                          Comments
-                        </span>
+                        <span className="text-sm text-blueGray-400">Likes</span>
                       </div>
                     </div>
                   </div>

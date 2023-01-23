@@ -17,6 +17,10 @@ module.exports = {
       minHeight: {
         "screen-75": "75vh",
       },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        kaushanscript: ["KaushanScript", "Regual 400"],
+      },
       fontSize: {
         55: "55rem",
       },

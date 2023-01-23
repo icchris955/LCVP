@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async (req, res) => {
+const LogOut = async (req, res) => {
   let accessToken = null;
 
   if (req.method === "POST") {
@@ -49,3 +49,4 @@ export default async (req, res) => {
     res.status(405).json({ message: `Method ${req.method} is not allowed` });
   }
 };
+export default LogOut;

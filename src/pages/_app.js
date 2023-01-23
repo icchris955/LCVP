@@ -3,9 +3,8 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-// import { AuthProvider } from "../context/AuthContext";
-import PageChange from "components/PageChange/PageChange.js";
-import { AuthProvider } from "../context/auth-context";
+import { AuthProvider } from "../context/AuthContext";
+import PageChange from "src/components/PageChange/PageChange.js";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "styles/tailwind.css";
@@ -30,7 +29,6 @@ Router.events.on("routeChangeError", () => {
 export default class MyApp extends App {
   componentDidMount() {
     let comment = document.createComment(`
-
 `);
     document.insertBefore(comment, document.documentElement);
   }

@@ -11,5 +11,5 @@ export default async (req, res) => {
       path: "/",
     })
   );
-    res.status(200).json({message: 'User has been logged out!'})
+  res.status(200).json({ message: "User has been logged out!" });
 };

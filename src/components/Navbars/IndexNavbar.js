@@ -16,7 +16,7 @@ export default function Navbar(props) {
                 className="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
                 href="#pablo"
               >
-                Your Loan Partner
+                LCVP
               </a>
             </Link>
             <button
@@ -35,15 +35,15 @@ export default function Navbar(props) {
             id="example-navbar-warning"
           >
             <ul className="flex flex-col lg:flex-row list-none mr-auto">
-              <li className="flex items-center">
+              {/* <li className="flex items-center">
                 <a
                   className="hover:text-blueGray-400 text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                   href=" "
                 >
                   <i className="text-white far fa-file-alt text-lg leading-lg mr-2" />{" "}
-                  Docs
+                  Documentation
                 </a>
-              </li>
+              </li> */}
             </ul>
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="flex items-center">

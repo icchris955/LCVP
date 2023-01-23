@@ -24,7 +24,7 @@ export default function Sidebar() {
           <Link href="/">
             <a
               href="#pablo"
-              className="hidden md:block md:pb-2 text-white mr-0 text-md uppercase font-bold p-4 px-0 text-center"
+              className="hidden md:block md:pb-2 text-white mr-0 text-md uppercase p-4 px-0 text-center body-font font-kaushanscript"
             >
               LOAN CREDIBILITY VERIFICATION PLATFORM
             </a>
@@ -178,7 +178,7 @@ export default function Sidebar() {
                           : "text-blueGray-300")
                       }
                     ></i>{" "}
-                    Settings
+                    Terms
                   </a>
                 </Link>
               </li>
@@ -202,7 +202,7 @@ export default function Sidebar() {
                           : "text-blueGray-300")
                       }
                     ></i>{" "}
-                    Maps
+                    Analysis
                   </a>
                 </Link>
               </li>
@@ -212,7 +212,7 @@ export default function Sidebar() {
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="md:min-w-full text-white text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Auth Layout Pages
+              {" "}
             </h6>
             {/* Navigation */}
 
@@ -229,6 +229,17 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
+                <Link href="/profile">
+                  <a
+                    href="#pablo"
+                    className="text-white hover:text-blueGray-500 text-xs uppercase py-3 font-semibold block"
+                  >
+                    <i className="far fa-file-alt  text-blueGray-400 mr-2 text-sm"></i>{" "}
+                    Documentation
+                  </a>
+                </Link>
+              </li>
+              {/* <li className="items-center">
                 <Link href="/auth/login">
                   <a
                     href="#pablo"
@@ -250,7 +261,7 @@ export default function Sidebar() {
                     Register
                   </a>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

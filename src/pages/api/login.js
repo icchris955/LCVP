@@ -32,9 +32,9 @@ export default async (req, res) => {
         cookie.serialize("refresh", accessResponse.refresh, {
           httpOnly: true,
           secure: false, // Change to true in production
-          sameSite: 'strict',
+          sameSite: "strict",
           maxAge: 60 * 60 * 24,
-          path: '/',
+          path: "/",
         })
       );
     } catch (error) {

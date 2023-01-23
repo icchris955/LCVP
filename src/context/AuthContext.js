@@ -129,9 +129,9 @@ export const AuthProvider = ({ children }) => {
     try {
       // api request to api/user
       const { data } = await axios.post("http://localhost:3000/api/user");
-      setUser(data.user)
-      setAccessToken(data.access)
-      
+      setUser(data.user);
+      setAccessToken(data.access);
+
       // setUser()
     } catch (error) {
       if (error.response && error.response.data) {

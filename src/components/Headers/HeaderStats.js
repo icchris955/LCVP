@@ -16,7 +16,7 @@ export default function HeaderStats() {
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                 <CardStats
                   statSubtitle="New Applicants"
-                  statTitle="350,897"
+                  statTitle="100"
                   statArrow="up"
                   statPercent="3.48"
                   statIconName="far fa-chart-bar"
@@ -25,7 +25,7 @@ export default function HeaderStats() {
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                 <CardStats
                   statSubtitle="NEW USERS"
-                  statTitle="2,356"
+                  statTitle="50"
                   statArrow="down"
                   statPercent="3.48"
                   statIconName="fas fa-chart-pie"
@@ -34,7 +34,7 @@ export default function HeaderStats() {
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                 <CardStats
                   statSubtitle="Eligible"
-                  statTitle="924"
+                  statTitle="30"
                   statArrow="down"
                   statPercent="1.10"
                   statIconName="fas fa-users"
