@@ -1,5 +1,6 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
+import { useRouter } from "next/router";
 
 const NotificationDropdown = () => {
   // dropdown props
@@ -15,6 +16,7 @@ const NotificationDropdown = () => {
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
   };
+  const router = useRouter();
   return (
     <>
       <a
@@ -40,7 +42,10 @@ const NotificationDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
-          onClick={(e) => e.preventDefault()}
+          onClick={(e) => {
+            e.preventDefault();
+            router.push("applicationDetails");
+          }}
         >
           Approve
         </a>

@@ -2,8 +2,8 @@ import React from "react";
 
 // components
 
-import CardSettings from "src/components/Cards/CardApplication.js";
-import CardBorrower from "src/components/Cards/CardBorrower.js";
+import CardSettings from "src/components/Cards/CardSettings.js";
+import CardProfile from "src/components/Cards/CardProfile.js";
 
 // layout for page
 
@@ -17,7 +17,7 @@ export default function Settings() {
           <CardSettings />
         </div>
         <div className="w-full lg:w-4/12 px-4">
-          <CardBorrower />
+          <CardProfile />
         </div>
       </div>
     </>
