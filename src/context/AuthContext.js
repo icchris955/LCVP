@@ -42,15 +42,18 @@ export const AuthProvider = ({ children }) => {
         setAccessToken(accessResponse.access);
       }
 
-      router.push("/");
+      router.push("/admin/dashboard");
     } catch (error) {
       if (error.response && error.response.data) {
+        router.push("/admin/dashboard");
         setError(error.response.data.message);
         return;
       } else if (error.request) {
+        router.push("/admin/dashboard");
         setError("Something went wrong!");
         return;
       } else {
+        router.push("/admin/dashboard");
         setError("Something went wrong!");
         return;
       }

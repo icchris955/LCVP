@@ -47,7 +47,17 @@ export default function Navbar(props) {
             </ul>
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="flex items-center">
-                <IndexDropdown />
+                {/* <IndexDropdown /> */}
+                <Link href="/admin/dashboard">
+                  <a
+                    href="#pablo"
+                    className={
+                      "text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent text-white font-bold"
+                    }
+                  >
+                    Dashboard
+                  </a>
+                </Link>
               </li>
 
               <li className="flex items-center">

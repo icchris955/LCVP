@@ -160,7 +160,7 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="/admin/settings">
+                <Link href="#pablo">
                   <a
                     href="#pablo"
                     className={

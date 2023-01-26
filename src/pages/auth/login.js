@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 // layout for page
 
 import Auth from "layouts/Auth.js";
+import router from "next/router";
 
 export default function Login() {
   let { loginUser, login } = useContext(AuthContext);
@@ -11,6 +12,7 @@ export default function Login() {
   let [password, setPassword] = useState("");
 
   const submitHandler = (e) => {
+    router.push("admin/dashboard");
     e.preventDefault();
     login({ email, password });
   };
